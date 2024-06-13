@@ -28,7 +28,6 @@ export default function Dashboard() {
             {error && <h2>{error}</h2>}
             <strong>Email:</strong> {currentUser.email}
             <br />
-            <Link to='/update-profile'>Update Profile</Link>
         </div>
         <div>
             <input type="button" name="Log Out" id="logOut" onClick={handleLogout} value={"Log Out"}/>
