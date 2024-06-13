@@ -1,24 +1,23 @@
 import React, {useRef, useState} from 'react'
 import { useAuth } from '../../contexts/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export default function Login() {
+export default function ForgotPassword() {
     const emailRef = useRef();
-    const passwordRef = useRef();
-    const { login } = useAuth()
+    const { resetPassword } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
-    const navigate = useNavigate()
+    const [message, setMessage] = useState('')
 
     async function handleSubmit(e) {
         e.preventDefault()
         try {
             setError('')
             setLoading(true)
-            await login(emailRef.current.value, passwordRef.current.value)
-            navigate('/')
+            await resetPassword(emailRef.current.value)
+            setMessage('Check your inbox for further instructions')
         } catch (e){
-            setError('Failed to sign in')
+            setError('Failed to reset password')
             console.error(e.message)
         }
 
@@ -30,17 +29,16 @@ export default function Login() {
   return (
     <>
         <div>
-            <h2>Log in</h2>
+            <h2>Password Reset</h2>
             {error && <h2>{error}</h2>}
+            {message && <h2>{message}</h2>}
             <form onSubmit={handleSubmit}>
                 <label>Email</label>
                 <input type="email" ref={emailRef} required/>
-                <label>Password</label>
-                <input type="password" ref={passwordRef} required/>
-                <button type='submit' disabled={loading}>Log in</button>
+                <button type='submit' disabled={loading}>Reset Password</button>
             </form>
             <div>
-                <Link to='/forgot-password'>Forgot Password?</Link>
+                <Link to='/login'>Log in</Link>
             </div>
         </div>
         <div>Need an account? <Link to="/signup">Sign Up</Link></div>
