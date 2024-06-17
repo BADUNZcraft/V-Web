@@ -12,11 +12,12 @@ import { AuthProvider } from './contexts/AuthContext';
 import { IGDBProvider } from './contexts/IGDBContext';
 import { FirestoreProvider } from './contexts/FirestoreContext';
 
-import { createBrowserRouter, RouterProvider, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PrivateRoute from './components/PrivateRoute';
 
 const router = createBrowserRouter([
   {
+    // only available when signed in
     path: '/',
     element: <PrivateRoute />,
     children: [
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
 
   // Temporary
   {
-    path: '/test',
+    path: '/testigdb',
     element: <IGDBTest/>
   },
   {
