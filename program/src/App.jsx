@@ -47,8 +47,16 @@ const router = createBrowserRouter([
     element: <IGDBTest/>
   },
   {
+    // only available when signed in
     path: '/firestore',
-    element: <FireStore />
+    element: <PrivateRoute />,
+    children: [
+      {
+        path: '/firestore',
+        // add Landing Page
+        element: <FireStore />,
+      },
+    ],
   }
 ]);
 

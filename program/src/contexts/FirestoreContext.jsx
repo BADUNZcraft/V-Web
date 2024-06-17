@@ -1,4 +1,8 @@
 import React, { useContext } from 'react';
+import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
+
+
 
 const FirestoreContext = React.createContext();
 
@@ -7,12 +11,19 @@ export function useFirestore() {
 }
 
 export function FirestoreProvider({ children }) {
-    function testFunction() {
-        return "Hello World!";
+    async function addLike(currentUser, gameId) {
+        try {
+            const docRef = await addDoc(collection(db, "likes"), {
+              gameId: gameId,
+              userId: currentUser.uid
+            });
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
     }
 
     const value = {
-        testFunction
+        addLike
     };
 
     return (
