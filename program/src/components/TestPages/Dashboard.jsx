@@ -1,10 +1,8 @@
 // example code on how to implement users on homepage / header
 
-
-
 import React, { useState } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Dashboard() {
     const [error, setError]= useState('')

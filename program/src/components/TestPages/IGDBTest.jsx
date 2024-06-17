@@ -7,7 +7,7 @@ export default function IGDBTest() {
 
   useEffect(() => {
     initializeToken()
-  }, [])
+  })
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,11 +23,6 @@ export default function IGDBTest() {
     fetchData()
   }, [token]);
 
-  useEffect(() => {
-    data.forEach(element => {
-      console.log(element.id);
-    });
-  }, [data])
 
 
   return (
