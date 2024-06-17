@@ -4,9 +4,9 @@ import Signup from './components/authentication/Singup';
 import Login from './components/authentication/Login';
 import ForgotPassword from './components/authentication/ForgotPassword';
 
-import Dashboard from './components/TestPages/Dashborad';
+import Dashboard from './components/TestPages/Dashboard';
 import IGDBTest from './components/TestPages/IGDBTest';
-import FireStore from './components/TestPages/FireStore'
+import FireStore from './components/TestPages/FireStore';
 
 import { AuthProvider } from './contexts/AuthContext';
 import { IGDBProvider } from './contexts/IGDBContext';
