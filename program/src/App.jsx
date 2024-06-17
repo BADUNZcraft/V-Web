@@ -7,6 +7,7 @@ import ForgotPassword from './components/authentication/ForgotPassword';
 import Dashboard from './components/TestPages/Dashboard';
 import IGDBTest from './components/TestPages/IGDBTest';
 import FireStore from './components/TestPages/FireStore';
+import Wishlist from './components/Wishlist';
 
 import { AuthProvider } from './contexts/AuthContext';
 import { IGDBProvider } from './contexts/IGDBContext';
@@ -14,6 +15,7 @@ import { FirestoreProvider } from './contexts/FirestoreContext';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PrivateRoute from './components/PrivateRoute';
+import HomePage from './components/HomePage';
 
 const router = createBrowserRouter([
   {
@@ -23,9 +25,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        // add Landing Page
-        element: <Dashboard />,
+        element: <HomePage />,
       },
+      {
+        path: '/wishlist',
+        element: <Wishlist />
+      }
     ],
   },
   {
