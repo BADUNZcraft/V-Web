@@ -7,9 +7,8 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/test', async (req, res) => {
-    const { UserId, Token, ApiNode, query } = req.body;
-    console.log(ApiNode);
-    const data = await ageRatings(UserId, Token, ApiNode, query);
+    const { UserId, Token, ApiNode, Query } = req.body;
+    const data = await fetchData(UserId, Token, ApiNode, Query);
 
     res.status(200).send(data)
 });
@@ -21,9 +20,7 @@ app.listen(
 
 
 // API calls
-async function ageRatings(userId, token, apinode, query) {
-    console.log(`User ID: ${userId}`);
-    console.log(`Token: ${token}`);
+async function fetchData(userId, token, apinode, Query) {
     try {
       const response = await fetch(
         `https://api.igdb.com/v4/${apinode}`,
@@ -34,7 +31,7 @@ async function ageRatings(userId, token, apinode, query) {
             'Client-ID': userId,
             'Authorization': `Bearer ${token}`,
           },
-          body: query
+          body: Query
         }
       );
   

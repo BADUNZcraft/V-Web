@@ -37,40 +37,39 @@ export function IGDBProvider({ children }) {
                 var newToken = await getToken()
                 setToken(newToken)
                 localStorage.setItem('IGDBToken', JSON.stringify(newToken))
-                console.log(token);
             }
         }
     }
 
-    async function testFetch(){
+    async function testFetch(ApiNode, Query) {
+
         const UserId = process.env.REACT_APP_IGDB_CLIENT_ID;
         const Token = token.access_token;
-        const ApiNode = 'characters'
-        const query = 'fields *; limit 2;'
-
-        fetch('http://localhost:8080/test', {
+        try {
+          const response = await fetch('http://localhost:8080/test', {
             method: 'POST',
             headers: {
-            'Content-Type': 'application/json'
+              'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ UserId, Token, ApiNode, query })
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error(error));
-          
-    }
+            body: JSON.stringify({ UserId, Token, ApiNode, Query })
+          });
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error(error);
+          return undefined;
+        }
+      }
 
-    useEffect(() => {
-        initializeToken()
-    }, [])
-
-    async function test() {
-        testFetch()
+    async function getData(RequestedApiNode, RequestedQuery) {
+        const returnData = await testFetch(RequestedApiNode, RequestedQuery)
+        return returnData
     }
 
     const value = {
-        test
+        getData,
+        initializeToken,
+        token
     };
 
     return (

@@ -1,13 +1,17 @@
 import './App.css';
 
 import Signup from './components/authentication/Singup';
-import Dashboard from './components/authentication/Dashborad';
 import Login from './components/authentication/Login';
 import ForgotPassword from './components/authentication/ForgotPassword';
-import IGDBTest from './components/IGDBTest';
+
+import Dashboard from './components/TestPages/Dashborad';
+import IGDBTest from './components/TestPages/IGDBTest';
+import FireStore from './components/TestPages/FireStore'
 
 import { AuthProvider } from './contexts/AuthContext';
 import { IGDBProvider } from './contexts/IGDBContext';
+import { FirestoreProvider } from './contexts/FirestoreContext';
+
 import { createBrowserRouter, RouterProvider, Routes, Route } from "react-router-dom";
 import PrivateRoute from './components/PrivateRoute';
 
@@ -18,6 +22,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
+        // add Landing Page
         element: <Dashboard />,
       },
     ],
@@ -39,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: '/test',
     element: <IGDBTest/>
+  },
+  {
+    path: '/firestore',
+    element: <FireStore />
   }
 ]);
 
@@ -46,7 +55,9 @@ function App() {
   return (
     <AuthProvider>
       <IGDBProvider>
-        <RouterProvider router={router} />
+        <FirestoreProvider>
+          <RouterProvider router={router} />
+        </FirestoreProvider>
       </IGDBProvider>
     </AuthProvider>
   );
