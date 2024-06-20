@@ -29,22 +29,29 @@ export default function Login() {
 
   return (
     <>
-        <div>
-            <h2>Sign in to your account.</h2>
-            <h3>Enter your email to sign in to this page. </h3>
-            {error && <h2>{error}</h2>}
-            <form onSubmit={handleSubmit}>
-                <label>Email</label>
-                <input type="email" ref={emailRef} required/>
-                <label>Password</label>
-                <input type="password" ref={passwordRef} required/>
-                <button type='submit' disabled={loading}>Log in</button>
-            </form>
-            <div>
-                <Link to='/forgot-password'>Forgot Password?</Link>
+            <div className="container">
+                <h2>Sign in to your account</h2>
+                <h3>Enter your email to sign in to this page.</h3>
+                <form onSubmit={handleSubmit}>
+                    <input type="email" id="email" name="email" required ref={emailRef} placeholder="Email"/>
+                    <input type="password" id="password" name="password" required ref={passwordRef} placeholder="Password"/>
+                    {error && <span style={{ color: 'red' }}>{error}</span>}
+                    <button type="submit" disabled={loading}>Log in</button>
+                </form>
+
+                <div className="divider-container">
+                    <div className="divider-line"></div>
+                    <div className="or-continue">or continue with</div>
+                    <div className="divider-line"></div>
+                </div>
+
+                <div>
+                    <Link to="/forgot-password" className="button-style">Forgot Password?</Link>
+                </div>
+
+                <div>Need an account? <Link to="/signup">Sign Up</Link></div>
+
             </div>
-        </div>
-        <div>Need an account? <Link to="/signup">Sign Up</Link></div>
     </>
   )
 }
