@@ -53,9 +53,23 @@ export default function Signup() {
         
         <button type="submit" disabled={loading}>Sign Up with email</button>
       </form>
-      <div className="or-continue">or continue with</div>
+
+
+      <div className="divider-container">  
+        <div 
+          className="divider-line">
+        </div>
+        <div 
+          className="or-continue">or continue with
+        </div>
+        <div 
+          className="divider-line">
+        </div>
+      </div>
+
+
       <div>
-        <Link to="/login">Sign In</Link>
+      <Link to="/login" className="button-style">Sign In</Link>
       </div>
     </div>
     </>
