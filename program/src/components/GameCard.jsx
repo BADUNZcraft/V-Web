@@ -27,7 +27,7 @@ export default function GameCard({ gameId }) {
 
   const checkLike = async () => {
     const likedGames = await getLikedGames(currentUser.uid)
-    if(likedGames.some(obj => obj.gameId === game.id)) {
+    if(likedGames.some(obj => obj.gameId === game?.id)) {
       setIsLiked(true)
     } 
   }
