@@ -26,7 +26,7 @@ export function FirestoreProvider({ children }) {
             const likesRef = collection(db, "likes");
             const queryRef = query(likesRef, 
                 where('userId', '==', currentUser.uid), 
-                where('gameId', '==', `${gameId}`)
+                where('gameId', '==', gameId)
               );
             const querySnapshot = await getDocs(queryRef);
             
