@@ -245,7 +245,7 @@ h4 {
 .game-card {
   border-radius: 10px;
  /* border-top-left-radius: 40px;*/
-  /*border-top-right-radius: 40px;*/
+ /*border-top-right-radius: 40px;*/
   box-shadow: 0px 30px 40px -20px;
   background-color: rgba(132, 47, 47, 0.6);
   flex: 1 1 18%; /* Adjusts the basis to less than 20% allowing 5 items per row */
