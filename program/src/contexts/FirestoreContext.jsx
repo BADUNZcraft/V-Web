@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { db } from '../firebase';
-import { collection, addDoc, getDocs, query, where } from 'firebase/firestore';
+import { collection, addDoc,  getDocs, deleteDoc, query, where } from 'firebase/firestore';
 
 
 
@@ -21,6 +21,25 @@ export function FirestoreProvider({ children }) {
             console.error("Error adding document: ", e);
           }
     }
+    async function removeLike(currentUser, gameId) {
+        try {
+            const likesRef = collection(db, "likes");
+            const queryRef = query(likesRef, 
+                where('userId', '==', currentUser.uid), 
+                where('gameId', '==', `${gameId}`)
+              );
+            const querySnapshot = await getDocs(queryRef);
+            
+            console.log(`UID: ${currentUser.uid}`);
+            console.log(`GameID: ${gameId}`);
+            console.log(querySnapshot);
+            querySnapshot.forEach(async (doc) => {
+                await deleteDoc(doc.ref);
+            });
+        } catch (error) {
+          console.error(error);
+        }
+      }
 
     async function getLikedGames(userId) {
         try {
@@ -32,13 +51,14 @@ export function FirestoreProvider({ children }) {
             }));
             return newData;
         } catch (error) {
-            console.log(error.message);
+            console.error(error.message);
             return 'Error fetching likes';
         }
     }
 
     const value = {
         addLike,
+        removeLike,
         getLikedGames
     };
 

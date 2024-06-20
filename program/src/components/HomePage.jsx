@@ -3,27 +3,44 @@ import Header from './Header';
 import GameCard from './GameCard';
 import { useFirestore } from '../contexts/FirestoreContext';
 import { useAuth } from '../contexts/AuthContext';
+import { useIGDB } from '../contexts/IGDBContext';
 
 export default function HomePage() {
-  const { getLikedGames, addLike } = useFirestore();
+  const { addLike } = useFirestore();
+
+  const {getData, initializeToken, token} = useIGDB()
   const { currentUser } = useAuth();
-  const [likedGames, setLikedGames] = useState([]);
+  const [games, setGames] = useState([]);
 
   useEffect(() => {
-    const fetchLikedGames = async () => {
-      if (currentUser) {
+    initializeToken()
+  })
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (token) {
         try {
-          const likedGamesArray = await getLikedGames(currentUser.uid);
-          setLikedGames(likedGamesArray);
-          console.log(likedGamesArray);
+          const result = await getData('games', 'fields *; limit 8; sort rating_count desc;')
+          setGames(result)
         } catch (error) {
-          console.error('Error fetching liked games:', error);
+          console.error('Fehler beim Abrufen der Daten:', error)
         }
       }
-    };
+    }
+    fetchData()
+  }, [token]);
 
-    fetchLikedGames();
-  }, [currentUser, getLikedGames]);
+  function addDemoLikes() {
+    games.map(game => {
+      console.log(game);
+    })
+    /*
+    addLike(currentUser, '119133')
+    addLike(currentUser, '11913')
+    addLike(currentUser, '1191')
+    addLike(currentUser, '119')
+    */
+  }
 
   return (
     <div>
@@ -32,13 +49,11 @@ export default function HomePage() {
 
 
       <div className="games-container">
-        {likedGames.map(game => (
-          <GameCard key={game.id} game={game} />
+        {games.map(game => (
+          <GameCard key={game.id} gameId={game.id} />
         ))}
       </div>
-
-      <button onClick={() => {console.log(likedGames);}}>print likedGames</button>
-      <button onClick={() => {addLike(currentUser, 'ger')}}>add Like</button>
+      <button onClick={addDemoLikes}>add Like</button>
     </div>
   );
 }
