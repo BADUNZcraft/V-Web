@@ -28,10 +28,20 @@ export default function HomePage() {
   return (
     <div>
       <Header />
-      <h1>Home</h1>
-      <GameCard />
+      <h1>Browse games...</h1>
+
+
+      <div className="games-container">
+        {likedGames.map(game => (
+          <GameCard key={game.id} game={game} />
+        ))}
+      </div>
+
       <button onClick={() => {console.log(likedGames);}}>print likedGames</button>
       <button onClick={() => {addLike(currentUser, 'ger')}}>add Like</button>
     </div>
   );
 }
+
+
+
