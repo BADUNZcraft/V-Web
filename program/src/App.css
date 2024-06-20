@@ -79,6 +79,35 @@ body {
 }
 
 
+h1 {
+  color: #000000;
+  font-size: 36px; /* Adjust as needed */
+  font-weight: bold;
+  margin: 20px 0; /* Adjust as needed */
+  text-align: center; /* Optional */
+}
+
+h2 {
+  color: #000000; 
+  font-size: 18px; 
+  font-weight: bold;
+}
+
+h3 {
+  color: #000000; 
+  font-size: 14px; 
+  font-weight: normal; 
+  margin: 5px 0; 
+}
+
+h4 {
+  color: #666666; 
+  font-size: 16px; 
+  font-weight: normal; 
+  margin: 5px 0; 
+}
+
+
 .App {
   text-align: center;
 }
@@ -152,6 +181,19 @@ body {
   transition: background-color 0.3s ease; /* Smooth transition effect */
 }
 
+.button-style { /*Sign-in button on sign-up page*/
+  display: inline-block;
+  width: 80%;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #ffffff; 
+  color: rgb(0, 0, 0); 
+  text-decoration: none;
+  border-radius: 60px;
+  text-align: center;
+  cursor: pointer;
+}
+
 .container form button[type="submit"]:hover {
   background-color: #000000;
 }
@@ -172,4 +214,23 @@ body {
 
 .container form a:hover {
   text-decoration: underline;
+}
+
+.divider-container {
+  display: flex; 
+  align-items: center; 
+  margin: 10px 0; 
+}
+
+.divider-line {
+  height: 2px;
+  border-radius: 60px;
+  background-color: rgb(255, 255, 255);
+  flex: 1; 
+  margin: 0 10px; /* Add spacing between lines and text */
+}
+.or-continue {
+  color: #828282; 
+  font-size: 14px;
+  margin: 0 5px;
 }
