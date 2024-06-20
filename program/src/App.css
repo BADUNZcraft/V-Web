@@ -29,18 +29,18 @@ body {
 .header {
   width: 90%;
   max-width: 1200px;
-  background-color: rgba(132, 47, 47, 0.6); /* Background color with 30% opacity */
+  background-color: rgba(132, 47, 47, 0.6); 
   border-radius: 60px;
   padding: 20px 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin: 20px auto; /* Center the header horizontally */
+  margin: 20px auto; 
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%; /* Ensure the navbar spans the full width */
+  width: 100%;
   border-radius: 60px;
 }
 
@@ -65,6 +65,8 @@ body {
   padding: 10px 20px;
   border-radius: 60px;
   text-decoration: none;
+  border: 1px solid #000000; /*removes weird button outline*/
+
 }
 
 .nav-item:hover {
@@ -104,7 +106,7 @@ body {
 }
 
 .App-link {
-  color: #61dafb;
+  color: #61fb8f;
 }
 
 @keyframes App-logo-spin {
@@ -114,4 +116,60 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  width: 700px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 60px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container form {
+  display: flex; /* Arrange elements in a row */
+  flex-direction: column; /* Stack elements vertically */
+  gap: 20px; /* Add spacing between form elements */
+}
+
+.container form input[type="email"],
+.container form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #f7f7f7; /*removes sus border*/
+  border-radius: 60px;
+  font-size: 16px; /* Adjust font size */
+}
+
+.container form button[type="submit"] {
+  background-color: #000000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.container form button[type="submit"]:hover {
+  background-color: #000000;
+}
+
+.container form .error {
+  color: red;
+  font-size: 14px; /* Erhöht die Sichtbarkeit */
+  margin-bottom: 10px;
+  font-weight: bold; /* Hebt die Fehlermeldung hervor */
+}
+
+
+.container form a {
+  color: #417e53; /* Adjust color as needed */
+  text-decoration: none;
+  font-size: 14px; /* Adjust font size */
+}
+
+.container form a:hover {
+  text-decoration: underline;
 }
