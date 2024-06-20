@@ -243,21 +243,53 @@ h4 {
 }
 
 .game-card {
+  border-radius: 10px;
+ /* border-top-left-radius: 40px;*/
+  /*border-top-right-radius: 40px;*/
+  box-shadow: 0px 30px 40px -20px;
+  background-color: rgba(132, 47, 47, 0.6);
   flex: 1 1 18%; /* Adjusts the basis to less than 20% allowing 5 items per row */
   margin: 10px;
   max-width: 150px;
+  padding: 5px;
 }
 
 .game-card-title {
-  padding: 5px;  /* Adjust padding as needed */
-  font-size: 14px;  /* Adjust font size as needed */
+  padding: 0px;
+  font-size: 14px;
   font-weight: bold;
   color: white;
-  text-align: center;
+  text-align: left;
+}
+
+.game-card-rating{
+  padding: 0px; 
+  font-size: 12px;
+  text-align: left;
+  font-weight: bold;
+  color: gold;
 }
 
 .game-card-image img {
   width: 100%;
   height: auto;
   border-radius: 40px;
+}
+
+.game-card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heart-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.heart-button:hover {
+  transform: scale(1.1);
 }
