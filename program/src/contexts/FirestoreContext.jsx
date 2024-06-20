@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { db } from '../firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, getDocs, query, where } from 'firebase/firestore';
 
 
 
@@ -22,8 +22,24 @@ export function FirestoreProvider({ children }) {
           }
     }
 
+    async function getLikedGames(userId) {
+        try {
+            const q = query(collection(db, 'likes'), where('userId', '==', userId));
+            const querySnapshot = await getDocs(q);
+            const newData = querySnapshot.docs.map((doc) => ({
+                ...doc.data(),
+                id: doc.id,
+            }));
+            return newData;
+        } catch (error) {
+            console.log(error.message);
+            return 'Error fetching likes';
+        }
+    }
+
     const value = {
-        addLike
+        addLike,
+        getLikedGames
     };
 
     return (
