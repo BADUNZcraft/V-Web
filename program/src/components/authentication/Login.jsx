@@ -30,7 +30,8 @@ export default function Login() {
   return (
     <>
         <div>
-            <h2>Log in</h2>
+            <h2>Sign in to your account.</h2>
+            <h3>Enter your email to sign in to this page. </h3>
             {error && <h2>{error}</h2>}
             <form onSubmit={handleSubmit}>
                 <label>Email</label>

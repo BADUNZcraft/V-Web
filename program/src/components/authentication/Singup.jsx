@@ -31,23 +31,33 @@ export default function Signup() {
 
         
     }
+    
 
   return (
     <>
-        <div>
-            <h2>Sign Up</h2>
-            {error && <h2>{error}</h2>}
-            <form onSubmit={handleSubmit}>
-                <label>Email</label>
-                <input type="email" ref={emailRef} required/>
-                <label>Password</label>
-                <input type="password" ref={passwordRef} required/>
-                <label>Confirm Password</label>
-                <input type="password" ref={passwordConfirmRef} required/>
-                <button type='submit' disabled={loading}>Sign Up</button>
-            </form>
+    <div className="container">
+      <h2>Create an account</h2>
+      <h3>Enter your email to sign up for this page.</h3>
+      <form onSubmit={handleSubmit}>
+
+        <input type="email" id="email" name="email" required ref={emailRef} placeholder="Email"/>
+        
+        <input type="password" id="password" name="password" required ref={passwordRef} placeholder="Password" />
+
+        
+
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+            <input type="password" id="confirm-password" name="confirm-password" required ref={passwordConfirmRef} placeholder="Confirm Password" />
+            {error && <span style={{ marginLeft: '10px', color: 'red' }}>{error}</span>}
         </div>
-        <div>Already have an account? <Link to="/login">Log In</Link></div>
+        
+        <button type="submit" disabled={loading}>Sign Up with email</button>
+      </form>
+      <div className="or-continue">or continue with</div>
+      <div>
+        <Link to="/login">Sign In</Link>
+      </div>
+    </div>
     </>
   )
 }
