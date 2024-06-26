@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from './Header';
 import GameCard from './GameCard';
 import { useFirestore } from '../contexts/FirestoreContext';
@@ -7,7 +7,7 @@ import { useIGDB } from '../contexts/IGDBContext';
 
 export default function HomePage() {
   const { addLike } = useFirestore();
-
+  const searchRef = useRef();
   const {getData, initializeToken, token} = useIGDB()
   const { currentUser } = useAuth();
   const [games, setGames] = useState([]);
@@ -30,16 +30,21 @@ export default function HomePage() {
     fetchData()
   }, [token]);
 
-  function addDemoLikes() {
-    games.map(game => {
-      console.log(game);
-    })
-    /*
-    addLike(currentUser, '119133')
-    addLike(currentUser, '11913')
-    addLike(currentUser, '1191')
-    addLike(currentUser, '119')
-    */
+  async function handleSearchSubmit(e) {
+    e.preventDefault()
+    console.log(`Searching for ${searchRef.current.value}`);
+    var data = null
+    try{
+      if (searchRef.current.value){
+        data = await getData('games', `fields name; limit 8; search "${searchRef.current.value}";`)
+      } else {
+        data = await getData('games', 'fields *; limit 8; sort rating_count desc;')
+      }
+    }
+    catch{
+      data = games
+    }
+    setGames(data)
   }
 
   return (
@@ -47,13 +52,17 @@ export default function HomePage() {
       <Header />
       <h1>Browse games...</h1>
 
+      <form onSubmit={handleSearchSubmit}>
+        <input type="text" placeholder='Search Games' ref={searchRef}/>
+        <button type="submit">Search</button>
+      </form>
+
 
       <div className="games-container">
         {games.map(game => (
           <GameCard key={game.id} gameId={game.id} />
         ))}
       </div>
-      <button onClick={addDemoLikes}>add Like</button>
     </div>
   );
 }
