@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 /* Reset some basic styles */
 body, html {
   margin: 0;
@@ -13,29 +12,19 @@ body, html {
   line-height: 1.6;
   height: 100%;
 }
-
 body {
   text-align: center;
-  background: linear-gradient(
-      to bottom,
-      rgba(153, 29, 148, 0.5) 0%,
-      rgba(142, 27, 138, 1) 40%,
-      rgba(119, 23, 116, 1) 74%,
-      rgba(97, 18, 94, 1) 86%,
-      rgba(51, 10, 50, 1) 100%
-  );
+  background: linear-gradient( to bottom, rgba(153, 29, 148, 0.5) 0%, rgba(142, 27, 138, 1) 40%, rgba(119, 23, 116, 1) 74%, rgba(97, 18, 94, 1) 86%, rgba(51, 10, 50, 1) 100% );
 }
-
 .header {
   width: 90%;
   max-width: 1200px;
-  background-color: rgba(132, 47, 47, 0.6); 
+  background-color: rgba(132, 47, 47, 0.6);
   border-radius: 60px;
   padding: 20px 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin: 20px auto; 
+  margin: 20px auto;
 }
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -43,14 +32,12 @@ body {
   width: 100%;
   border-radius: 60px;
 }
-
 .nav-group {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   border-radius: 60px;
 }
-
 .nav-item {
   color: black;
   text-decoration: none;
@@ -58,71 +45,60 @@ body {
   font-size: 16px;
   border-radius: 60px;
 }
-
 .button {
   background-color: black;
   color: white;
   padding: 10px 20px;
   border-radius: 60px;
   text-decoration: none;
-  border: 1px solid #000000; /*removes weird button outline*/
-
+  border: 1px solid #000000;
+ /*removes weird button outline*/
 }
-
 .nav-item:hover {
   text-shadow: 5px 5px 20px rgba(255, 111, 0, 0.886);
 }
-
-  
 .button:hover{
   box-shadow: 5px 5px 20px rgba(255, 111, 0, 0.886);
 }
-
-
 h1 {
   color: #000000;
-  font-size: 36px; /* Adjust as needed */
+  font-size: 36px;
+ /* Adjust as needed */
   font-weight: bold;
-  margin: 20px 0; /* Adjust as needed */
-  text-align: center; /* Optional */
+  margin: 20px 0;
+ /* Adjust as needed */
+  text-align: center;
+ /* Optional */
 }
-
 h2 {
-  color: #000000; 
-  font-size: 18px; 
+  color: #000000;
+  font-size: 18px;
   font-weight: bold;
 }
-
 h3 {
-  color: #000000; 
-  font-size: 14px; 
-  font-weight: normal; 
-  margin: 5px 0; 
+  color: #000000;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 5px 0;
 }
-
 h4 {
-  color: #666666; 
-  font-size: 16px; 
-  font-weight: normal; 
-  margin: 5px 0; 
+  color: #666666;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 5px 0;
 }
-
-
 .App {
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+      animation: App-logo-spin infinite 20s linear;
+ }
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -133,20 +109,17 @@ h4 {
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61fb8f;
 }
-
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
-  }
+      transform: rotate(0deg);
+ }
   to {
-    transform: rotate(360deg);
-  }
+      transform: rotate(360deg);
+ }
 }
-
 .container {
   width: 700px;
   margin: 50px auto;
@@ -154,22 +127,23 @@ h4 {
   border-radius: 60px;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 .container form {
-  display: flex; /* Arrange elements in a row */
-  flex-direction: column; /* Stack elements vertically */
-  gap: 20px; /* Add spacing between form elements */
+  display: flex;
+ /* Arrange elements in a row */
+  flex-direction: column;
+ /* Stack elements vertically */
+  gap: 20px;
+ /* Add spacing between form elements */
 }
-
-.container form input[type="email"],
-.container form input[type="password"] {
+.container form input[type="email"], .container form input[type="password"] {
   width: 100%;
   padding: 10px;
-  border: 1px solid #f7f7f7; /*removes sus border*/
+  border: 1px solid #f7f7f7;
+ /*removes sus border*/
   border-radius: 60px;
-  font-size: 16px; /* Adjust font size */
+  font-size: 16px;
+ /* Adjust font size */
 }
-
 .container form button[type="submit"] {
   background-color: #000000;
   color: #fff;
@@ -178,82 +152,80 @@ h4 {
   border-radius: 60px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s ease; /* Smooth transition effect */
+  transition: background-color 0.3s ease;
+ /* Smooth transition effect */
 }
-
-.button-style { /*Sign-in button on sign-up page*/
+.button-style {
+ /*Sign-in button on sign-up page*/
   display: inline-block;
   width: 80%;
   padding: 10px 20px;
   margin: 10px;
-  background-color: #ffffff; 
-  color: rgb(0, 0, 0); 
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   text-decoration: none;
   border-radius: 60px;
   text-align: center;
   cursor: pointer;
 }
-
 .container form button[type="submit"]:hover {
   background-color: #000000;
 }
-
 .container form .error {
   color: red;
-  font-size: 14px; /* Erhöht die Sichtbarkeit */
+  font-size: 14px;
+ /* Erhöht die Sichtbarkeit */
   margin-bottom: 10px;
-  font-weight: bold; /* Hebt die Fehlermeldung hervor */
+  font-weight: bold;
+ /* Hebt die Fehlermeldung hervor */
 }
-
-
 .container form a {
-  color: #417e53; /* Adjust color as needed */
+  color: #417e53;
+ /* Adjust color as needed */
   text-decoration: none;
-  font-size: 14px; /* Adjust font size */
+  font-size: 14px;
+ /* Adjust font size */
 }
-
 .container form a:hover {
   text-decoration: underline;
 }
-
 .divider-container {
-  display: flex; 
-  align-items: center; 
-  margin: 10px 0; 
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
 }
-
 .divider-line {
   height: 2px;
   border-radius: 60px;
   background-color: rgb(255, 255, 255);
-  flex: 1; 
-  margin: 0 10px; /* Add spacing between lines and text */
+  flex: 1;
+  margin: 0 10px;
+ /* Add spacing between lines and text */
 }
 .or-continue {
-  color: #828282; 
+  color: #828282;
   font-size: 14px;
   margin: 0 5px;
 }
-
-
 .games-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
-
 .game-card {
   border-radius: 10px;
- /* border-top-left-radius: 40px;*/
- /*border-top-right-radius: 40px;*/
+ /* border-top-left-radius: 40px;
+ */
+ /*border-top-right-radius: 40px;
+ */
   box-shadow: 0px 30px 40px -20px;
   background-color: rgba(132, 47, 47, 0.4);
-  flex: 1 1 18%; /* Adjusts the basis to less than 20% allowing 5 items per row */
+  flex: 1 1 18%;
+ /* Adjusts the basis to less than 20% allowing 5 items per row */
   margin: 10px;
   max-width: 150px;
   padding: 5px;
 }
-
 .game-card-title {
   padding: 0px;
   font-size: 14px;
@@ -261,27 +233,23 @@ h4 {
   color: white;
   text-align: left;
 }
-
 .game-card-rating{
-  padding: 0px; 
+  padding: 0px;
   font-size: 12px;
   text-align: left;
   font-weight: bold;
   color: gold;
 }
-
 .game-card-image img {
   width: 150px;
   height: auto;
   border-radius: 40px;
 }
-
 .game-card-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .heart-button {
   background: none;
   border: none;
@@ -289,7 +257,40 @@ h4 {
   font-size: 12px;
   transition: transform 0.3s ease;
 }
-
 .heart-button:hover {
   transform: scale(1.1);
+}
+.container-search {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: rgba(132, 47, 47, 0.4);
+  box-shadow: 0px 30px 40px -20px;
+  border-radius: 60px;
+}
+.input-style, .button-style {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 60px;
+  display: block;
+ /* Ensures they take up the full width as block elements */
+}
+.button-style {
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+/* Reset any additional margins */
+.input-style, .button-style {
+  margin: 0;
+  margin-bottom: 10px;
+ /* Only bottom margin to separate them */
+}
+.button-style:hover {
+  box-shadow: 5px 5px 20px rgba(255, 111, 0, 0.886);
 }

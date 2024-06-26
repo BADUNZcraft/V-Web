@@ -52,10 +52,12 @@ export default function HomePage() {
       <Header />
       <h1>Browse games...</h1>
 
-      <form onSubmit={handleSearchSubmit}>
-        <input type="text" placeholder='Search Games' ref={searchRef}/>
-        <button type="submit">Search</button>
-      </form>
+      <div className="container-search">
+        <form onSubmit={handleSearchSubmit}>
+          <input type="text" placeholder='Search Games' ref={searchRef} className="input-style"/>
+          <button type="submit" className="button-style">Search</button>
+        </form>
+      </div>
 
 
       <div className="games-container">
@@ -66,6 +68,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-
-
